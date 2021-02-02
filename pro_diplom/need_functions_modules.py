@@ -160,8 +160,6 @@ def search_users(age_from, age_to, gender, town, status, country):
     #     print(i)
     return users
 
-
-search_users(18, 30, 1, "ташкент", 6, "Узбекистан")
 # get_token()
 # search_country("Узбекистан")
 
