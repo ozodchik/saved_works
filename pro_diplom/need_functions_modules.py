@@ -54,7 +54,7 @@ def know_username(users_id):
     return name
 
 
-def parse_users_age(vk_id):
+def parse_bot_user(vk_id):
     V = "5.126"
     API_BASE_URL = "https://api.vk.com/method/"
     link = urljoin(API_BASE_URL, "users.get")
@@ -63,17 +63,17 @@ def parse_users_age(vk_id):
                                 "access_token": user_token,
                                 "v": V,
                                 "user_ids": vk_id,
-                                "fields": ["age, sex"]
+                                "fields": ["sex, status"]
                             })
-    response_json = response.json()
-    print(response_json)
-    # response_json = response.json()["response"]["items"]
-    pass
+    response_json = response.json()["response"]
+    some_dict = {}
+    for i in response_json:
+        some_dict["name"] = i["first_name"]
+        some_dict["surname"] = i["last_name"]
+        some_dict["ID"] = i["id"]
+        some_dict["gemder"] = i["sex"]
+    return some_dict
 
-
-# get_token()
-
-# parse_users_age(477434703)
 
 def get_photos(owner_user_id):
     API_BASE_URL = "https://api.vk.com/method/"
@@ -156,8 +156,8 @@ def search_users(age_from, age_to, gender, town, status, country):
               "town": i["home_town"], "country": i["country"], "gender": i["sex"], "status": i["status"]} for i in
              response_json if "home_town" in i and town.lower() in i["home_town"].lower() and "country" in i and
              "status" in i)
-    for i in users:
-        print(i)
+    # for i in users:
+    #     print(i)
     return users
 
 
