@@ -49,7 +49,23 @@ class AllVkUsers(BASE):
     country_id = Column(Integer, ForeignKey("user_country.ID"))
     town_id = Column(Integer, ForeignKey("user_country.ID"))
     status_id = Column(Integer, ForeignKey("user_status.ID"))
-    is_bot_user = Column(Boolean, default=True)
+    is_bot_user = Column(Boolean, default=False)
+
+
+class SearchParams(BASE):
+    __tablename__ = "search_params"
+
+    ID = Column(Integer, primary_key=True)
+    search_owner_id = Column(Integer, ForeignKey("all_vk_users.vk_id"))
+    age_from = Column(Integer)
+    age_to = Column(Integer)
+    status = Column()
+
+
+class SearchUsers(BASE):
+    __tablename__ = "search_users"
+
+    ID = Column(Integer, primary_key=True)
 
 
 # BASE.metadata.create_all(engine)
