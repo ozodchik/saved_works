@@ -5,7 +5,7 @@ from functools import wraps
 def function_logger(function):
     @wraps(function)
     def inner_function(*args, **kwargs):
-        with open("C:\\Users\\озод\\PycharmProjects\\first\\third_pro_homeworks\\text.log", "a+", encoding="utf-8") as log_file:
+        with open("C:\\Users\\озод\\PycharmProjects\\saved_works\\third_pro_homeworks\\text.log", "a+", encoding="utf-8") as log_file:
             start_time = datetime.now()
             log_file.write(
                 f"Имя функции:{function.__name__} \n дата вызова: {date.today()} \n время вызова функции: {datetime.now().time()} \n")
