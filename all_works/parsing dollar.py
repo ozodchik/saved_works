@@ -1,7 +1,7 @@
-
 import requests
 from bs4 import BeautifulSoup
 from pprint import pprint
+
 KEYWORDS = ['дизайн', 'фото', 'web', 'python']
 
 
