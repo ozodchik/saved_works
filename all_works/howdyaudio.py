@@ -5,7 +5,7 @@ import speech_recognition as sr
 from fuzzywuzzy import fuzz
 import pyttsx3
 import datetime
-import pyaudio
+
 
 # настройки
 opts = {
