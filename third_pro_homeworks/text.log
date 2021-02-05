@@ -284,3 +284,15 @@
 Всего потрачено времени: 0:00:00.390349 
 Документатция: None 
  
+Имя функции:get_user_friends 
+ дата вызова: 2021-02-03 
+ время вызова функции: 16:25:50.201518 
+Аргумент *args: (<__main__.User object at 0x0000020EAEEA76D0>,) 
+ Аргументы **kwargs: {} 
+Результат вызова функции get_user_friends: 
+  Всё прошло успешно! 
+ Статус кода: 200 
+ ваши друзья: {'error': {'error_code': 5, 'error_msg': 'User authorization failed: invalid access_token (4).', 'request_params': [{'key': 'v', 'value': '5.214'}, {'key': 'method', 'value': 'friends.get'}, {'key': 'oauth', 'value': '1'}]}} 
+Всего потрачено времени: 0:00:00.371566 
+Документатция: None 
+ 

@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, and_, Boolean
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, and_, Boolean, null
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from pro_diplom.config_keys import owner_db, db_name, db_password
@@ -59,14 +59,21 @@ class SearchParams(BASE):
     search_owner_id = Column(Integer, ForeignKey("all_vk_users.vk_id"))
     age_from = Column(Integer)
     age_to = Column(Integer)
-    status = Column()
+    status = Column(Integer, ForeignKey("user_status.ID"))
+    town = Column(Integer, ForeignKey("user_town.ID"))
+    country = Column(Integer, ForeignKey("user_country.ID"))
+    gender = Column(Integer, ForeignKey("user_gender"))
 
 
 class SearchUsers(BASE):
     __tablename__ = "search_users"
 
     ID = Column(Integer, primary_key=True)
+    search_params_id = Column(Integer, ForeignKey("search_params.ID"))
+    found_result_vk_id = Column(Integer, ForeignKey("all_vk_users.vk_id"))
+    is_shown = Column(Boolean, default=False)
+    liked_status = Column(Boolean, default=null)
 
 
-# BASE.metadata.create_all(engine)
+BASE.metadata.create_all(engine)
 
